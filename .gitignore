@@ -9,3 +9,7 @@ static/
 __init__.py
 
 run/
+
+geonaut/settings/dev.py
+
+geonaut/settings/production.py
