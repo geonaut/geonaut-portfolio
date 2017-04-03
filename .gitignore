@@ -1,0 +1,11 @@
+
+*.pyc
+
+db.sqlite3
+
+geonaut/static/
+static/
+
+__init__.py
+
+run/
