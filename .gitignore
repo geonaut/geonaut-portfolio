@@ -13,3 +13,5 @@ run/
 geonaut/settings/dev.py
 
 geonaut/settings/production.py
+
+media/
