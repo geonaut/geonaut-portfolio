@@ -1,9 +1,6 @@
-
 *.pyc
 
 db.sqlite3
-
-static/
 
 run/
 media/
