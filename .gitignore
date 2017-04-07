@@ -11,6 +11,6 @@ __init__.py
 run/
 media/
 
-geonaut/settings/settings.local.py
+geonaut/settings/settings.local
 
 
