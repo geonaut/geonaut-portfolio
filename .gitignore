@@ -9,9 +9,8 @@ static/
 __init__.py
 
 run/
-
-geonaut/settings/dev.py
-
-geonaut/settings/production.py
-
 media/
+
+geonaut/settings/settings.local.py
+
+
