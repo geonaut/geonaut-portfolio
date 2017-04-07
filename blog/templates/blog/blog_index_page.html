@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags taggit_templatetags2_tags %}
+
+{% block body_class %}template-blogindexpage{% endblock %}
+
+{% block content %}
+<div class="index-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                {% for post in blogpages %}
+                    {% with post=post.specific %}
+                        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+                        {{ post.body|safe|truncatewords:120|linebreaks }}
+                    {% endwith %}
+                    <hr class="section-heading">
+                {% endfor %}
+            </div>
+            <div class="col-lg-3 sidebar">
+                <p>All tags:</p>
+                <ul>
+                {% get_taglist as all_labels for 'blog.BlogPage' %}
+                {% for tag in all_labels %}
+                <li> <a href="{% slugurl 'tags' %}?tag={{ tag }}">{{tag}}</a> ({{tag.num_times}})</li>
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

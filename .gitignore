@@ -1,0 +1,11 @@
+*.pyc
+
+db.sqlite3
+
+run/
+media/
+/static
+
+geonaut/settings/settings.local
+
+
