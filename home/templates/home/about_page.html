@@ -8,54 +8,44 @@
 
 {% block content %}
 <div class="index-banner">
- <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-lg-offset-1 col-sm-6">
-                    <img class="img-responsive" src="{% static "img/about.png" %}" alt="">
-                </div>
-                <div class="col-lg-7 col-lg-offset-1">
-                    
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">About</h2>
-                    <p class="lead">Hi. I'm a 30-something software developer and information security specialist, living in Oxford, UK. This is my portfolio site, where I gather together my various online profiles and host some of my favourite projects.</p>
-                </div>
-            </div>
-
-        </div>
-        </div>
-
     <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                <hr class="section-heading">
-    {{ page.body|richtext}}
+        <div class="row">
+            <div class="col-lg-3 col-lg-offset-1 col-sm-6">
+                <img class="img-responsive" src="{% static "img/about.png" %}" alt="">
+            </div>
+            <div class="col-lg-7 col-lg-offset-1">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">About</h2>
+                <p class="lead">Hi. I'm a 30-something software developer and information security specialist, living in Oxford, UK. This is my portfolio site, where I gather together my various online profiles and host some of my favourite projects.</p>
+            </div>
+        </div>
     </div>
 </div>
-</div>
-    <a  name="contact"></a>
-    <div class="banner-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
+<div class="container panel-body">
+    <div class="row">
+        <div class="col-lg-12">
+            <hr class="section-heading">
+            <div id="exTab2" style="padding-top: 40px;"> 
+            <ul class="nav nav-tabs">
+                <li class="active"><a  href="#1" data-toggle="tab">Professional profile</a></li>
+                <li><a href="#2" data-toggle="tab">Personal profile</a></li>
+                <li><a href="#3" data-toggle="tab">CV</a></li>
+            </ul>
+            </div>
+            <div class="tab-content ">
+                <div class="tab-pane active" id="1">
+                    {{ page.body|richtext}}
                 </div>
-                <div class="col-lg-6">
-                    <ul class="list-inline banner-social-buttons">
-                        <li>
-                            <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                        </li>
-                        <li>
-                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
-                        </li>
-                    </ul>
+                <div class="tab-pane" id="2">
+                    {{ page.body|richtext}}
+                </div>
+                <div class="tab-pane" id="3">
+                    {{ page.body|richtext}}
                 </div>
             </div>
-
         </div>
-        <!-- /.container -->
-
     </div>
+</div>
+{% include "home/bottom_banner.html" %} 
 {% endblock %}
 

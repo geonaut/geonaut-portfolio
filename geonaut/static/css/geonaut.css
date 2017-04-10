@@ -112,6 +112,11 @@ h2 {
 .index-banner {
     padding-top: 100px;
     border-top: 1px solid #e7e7e7;
+        min-height: 320px;
+}
+
+.panel-body {
+    min-height: 500px;
 }
 
 .sidebar {
@@ -230,3 +235,13 @@ p.copyright {
     padding-left: 75px;
     display: block;
 }
+
+/*.tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+}
+
+.nav-tabs {
+    margin-bottom: 0;
+}*/

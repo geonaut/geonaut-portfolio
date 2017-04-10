@@ -9,3 +9,7 @@ media/
 geonaut/settings/settings.local
 
 
+
+*.sublime-project
+
+*.sublime-workspace
