@@ -22,8 +22,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
-ALLOWED_HOSTS = ['dev.geonaut.co.uk', '192.168.10.2']
-
 # Application definition
 
 INSTALLED_APPS = [
