@@ -236,6 +236,23 @@ p.copyright {
     display: block;
 }
 
+.btn-employ {
+    color: #ffffff;
+    background-color: #fba853;
+    padding: 4px 14px;
+    margin-bottom: 0;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.btn-employ:hover {
+  color: #ffffff;
+    opacity: 0.9;
+}
+
+.navbar-btn {
+    margin-top: 0px;
+}
 /*.tab-content {
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
