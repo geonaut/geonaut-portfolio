@@ -15,10 +15,12 @@ class HomePage(Page):
     ]
 
 class AboutPage(Page):
-    body = RichTextField(blank=True)
+    body_professional = RichTextField(blank=True)
+    body_personal = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
-        FieldPanel('body', classname="full"),
+        FieldPanel('body_professional', classname="full"),
+        FieldPanel('body_personal', classname="full"),
     ]
 
 class ProjectsPage(Page):
