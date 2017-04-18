@@ -1,87 +1,54 @@
  {% extends "base.html" %}
 
-{% load wagtailcore_tags static%}
+{% load wagtailcore_tags static wagtailimages_tags%}
 
 {% block body_class %}template-aboutpage index{% endblock %}
 
-
-
 {% block content %}
+<!-- Banner -->
 <div class="index-banner">
- <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-lg-offset-1 col-sm-6">
-                    <img class="img-responsive" src="{% static "img/cogs.png" %}" alt="">
-                </div>
-                <div class="col-lg-7 col-lg-offset-1">
-                    
-                    <div class="clearfix"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-lg-offset-1 col-sm-6">
+                <img class="img-responsive" src="{% static "img/cogs.png" %}" alt="">
+            </div>
+            <div class="col-lg-7 col-lg-offset-1">
+                <div class="clearfix"></div>
                     <h2 class="section-heading">{{ self.title }}</h2>
                     <p class="lead">{{ self.body|richtext }}</p>
-                </div>
             </div>
-
         </div>
-        </div>
+    </div>
+</div>
 
-    <div class="container panel-body">
-        <div class="row">
-            <div class="col-lg-12">
+<!-- Content -->
+<div class="container panel-body">
+    <div class="row">
+        <div class="col-lg-12">
             <hr class="section-heading">
-                <div class="container" style="padding-top: 40px;">
- <!-- Project One -->
-        <div class="row">
-            <div class="col-md-5">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                </a>
-            </div>
-            <div class="col-md-7">
-                <h3>Project One</h3>
-                <h4>Subheading</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Project Two -->
-        <div class="row">
-            <div class="col-md-5">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                </a>
-            </div>
-            <div class="col-md-7">
-                <h3>Project Two</h3>
-                <h4>Subheading</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
-                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <div class="container" style="padding-top: 40px;">
+                {% with self.projectList as projects %}
+                    {% if projects %}
+                        {% for project in projects %}
+                        <div class="row">
+                            <div class="col-md-6">
+                            {% image project.feed_image width-200 as img %}
+                            <img class="media-object" src="{{ img.url }}" />
+                            </div>
+                            <div class="col-md-6">
+                            <h3>{{ project.title }}</h3>
+                            <h4>{{ project.project_subtitle }}</h4>
+                            <p>{{ project.body|richtext }}</p>
+                            <a class="btn btn-primary" href="{{ project.link }}">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
+                            </div>
+                        </div>
+                        <hr>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
             </div>
         </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Project Three -->
-        <div class="row">
-            <div class="col-md-5">
-                <a href="#">
-                    <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-                </a>
-            </div>
-            <div class="col-md-7">
-                <h3>Project Three</h3>
-                <h4>Subheading</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-                <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-        </div></div></div></div>
+    </div>
+</div>
 {% include "home/bottom_banner.html" %} 
 {% endblock %}
