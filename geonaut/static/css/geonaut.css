@@ -23,7 +23,6 @@ h6 {
 
 body {
     font-size: 16px;
-    text-align: justify;
 }
 
 h2 {
@@ -209,32 +208,65 @@ p.copyright {
     margin: 15px 0 0;
 }
 
+@media (min-width: 800px) {
 /* The heart of the matter */
-.btn-matrix > .btn:nth-child(2n+3) {
-  clear: left;
-  margin-left: 0;
-}
-.btn-matrix > .btn:nth-child(n+3) {
-  margin-top: -1px;
-}
-.btn-matrix > .btn:first-child {
-  border-bottom-left-radius: 0;
-}
-.btn-matrix > .btn:nth-child(2) {
-  border-top-right-radius: 4px !important;
-}
-.btn-matrix > .btn:nth-last-child(2) {
-  border-bottom-left-radius: 4px !important;
-}
-.btn-matrix > .btn:last-child {
-  border-top-right-radius: 0;
+    .btn-matrix > .btn:nth-child(2n+3) {
+      clear: left;
+      margin-left: 0;
+    }
+    .btn-matrix > .btn:nth-child(n+3) {
+      margin-top: -1px;
+    }
+    .btn-matrix > .btn:first-child {
+      border-bottom-left-radius: 0;
+    }
+    .btn-matrix > .btn:nth-child(2) {
+      border-top-right-radius: 4px !important;
+    }
+    .btn-matrix > .btn:nth-last-child(2) {
+      border-bottom-left-radius: 4px !important;
+    }
+    .btn-matrix > .btn:last-child {
+      border-top-right-radius: 0;
+    }
+    .btn-matrix {
+        padding-left: 75px;
+        display: block;
+    }
 }
 
-/* Decorations */
-.btn-matrix {
-    padding-left: 75px;
-    display: block;
+@media (max-width: 1200px) {
+/* The heart of the matter */
+    .btn-matrix > .btn:nth-child(1n+1) {
+      clear: left;
+      margin-left: 0;
+    }
+    .btn-matrix > .btn:nth-child(n+1) {
+      margin-top: -1px;
+    }
+    .btn-matrix > .btn:first-child {
+      border-bottom-left-radius: 0;
+    }
+    .btn-matrix > .btn:nth-child(1) {
+      border-top-right-radius: 4px !important;
+    }
+    .btn-matrix > .btn:nth-last-child(1) {
+      border-bottom-left-radius: 4px !important;
+    }
+    .btn-matrix > .btn:last-child {
+      border-top-right-radius: 0;
+    }
+    .btn-matrix {
+        /*padding-left: 75px;*/
+        display: inline-block;
+        text-align: center;
+    }
+    .btn-matrix .btn {
+        min-width: 200px;
+    }
 }
+
+
 
 .btn-employ {
     color: #ffffff;
