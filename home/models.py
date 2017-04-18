@@ -28,6 +28,29 @@ class ProjectsPage(Page):
         FieldPanel('body', classname="full"),
     ]
 
+class ProjectsSubPage(Page):
+    body = RichTextField(blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('body', classname="full"),
+    ]
+
+    @property
+    def projectList(self):
+        # Get list of live blog pages that are descendants of this page
+        project_list = Project.objects.live().descendant_of(self)
+
+        return project_list
+
+class Project(Page):
+    project_subtitle = models.CharField(max_length=255)
+    body = RichTextField(blank=True)
+    
+    content_panels = Page.content_panels + [
+        FieldPanel('body', classname="full"),
+        FieldPanel('project_subtitle', classname="full"),
+    ]
+
 class ContactPage(Page):
     body = RichTextField(blank=True)
 
