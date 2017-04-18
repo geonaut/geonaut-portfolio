@@ -8,6 +8,7 @@ media/
 
 
 geonaut/settings/local.py
+build/local_build.sh
 
 
 
