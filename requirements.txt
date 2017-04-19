@@ -3,3 +3,4 @@ wagtail>=1.9,<1.10
 django-taggit>=0.22,<0.23
 django-taggit-templatetags2>=1.6,<1.7
 django-debug-toolbar>=1.7,<1.8
+django-bootstrap-pagination==1.6.2
