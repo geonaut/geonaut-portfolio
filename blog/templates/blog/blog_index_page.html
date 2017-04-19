@@ -1,32 +1,74 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags wagtailimages_tags taggit_templatetags2_tags %}
+{% load wagtailcore_tags wagtailimages_tags taggit_templatetags2_tags bootstrap_pagination %}
 
 {% block body_class %}template-blogindexpage{% endblock %}
+{% include "home/top_banner.html" %} 
 
 {% block content %}
-<div class="index-banner">
+<!-- <div class="index-banner"> -->
+{% include "home/top_banner.html" %} 
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
-                {% for post in blogpages %}
+                {% for post in blogs %}
                     {% with post=post.specific %}
-                        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+                     {% with categories=post.categories.all %}
+                        {% if categories %}
+
+                            {% for category in categories %}
+                    <div class="row post-intro" id="{{ category.name }}" style="display:block;">
+                                {% endfor %}
+    {% endif %}
+{% endwith %}
+                        <div class="row">
+                        <div class="col-lg-10"><h3><a href="{% pageurl post %}">{{ post.title }}</a></h3></div>
+                        <div class="col-lg-2 blog-index-date"><p>{{ post.date }}</p></div>
+                        </div>
+
+                                       
+
+
                         {{ post.body|safe|truncatewords:120|linebreaks }}
                     {% endwith %}
-                    <hr class="section-heading">
+                    <hr class="blog-divider">
+                    </div>
                 {% endfor %}
-            </div>
+                </div>
+
             <div class="col-lg-3 sidebar">
-                <p>All tags:</p>
+                <div>
+                <h4>All tags</h4>
                 <ul>
                 {% get_taglist as all_labels for 'blog.BlogPage' %}
                 {% for tag in all_labels %}
                 <li> <a href="{% slugurl 'tags' %}?tag={{ tag }}">{{tag}}</a> ({{tag.num_times}})</li>
                 {% endfor %}
                 </ul>
+                </div>
+                <hr class="blog-divider">
+                <div>
+                <h4>Filter</h4>
+                    <p><label class="label-switch switch-success">
+                    <input type="checkbox" class="switch switch-bootstrap status Personal-toggle" id="Personal-toggle" data-on="Yes" data-off="No" onclick="filterPosts('Personal')" name="Personal" value="1" checked="checked">
+                    <span class="label"></span><span class="category">Personal</span></label></p>
+                    <p><label class="label-switch switch-success">
+                    <input type="checkbox" class="switch switch-bootstrap status Technical-toggle" id="Technical-toggle" data-on="Yes" data-off="No" onclick="filterPosts('Technical')" name="Technical" value="1" checked="checked">
+                    <span class="label"></span><span class="category">Technical</span></label></p>
+                    <p><label class="label-switch switch-success">
+                    <input type="checkbox" class="switch switch-bootstrap status InfoSec-toggle" id="InfoSec-toggle" data-on="Yes" data-off="No" onclick="filterPosts('InfoSec')" name="InfoSec" value="1" checked="checked">
+                    <span class="label"></span><span class="category">InfoSec</span></label></p>
+                    <p><label class="label-switch switch-success">
+                    <input type="checkbox" class="switch switch-bootstrap status Geoscience-toggle" id="Geoscience-toggle" data-on="Yes" data-off="No" onclick="filterPosts('Geoscience')" name="Geoscience" value="1" checked="checked">
+                    <span class="label"></span><span class="category">Geoscience</span></label></p>
+                    <p><label class="label-switch switch-success">
+                    <input type="checkbox" class="switch switch-bootstrap status Miscellaneous-toggle" id="Miscellaneous-toggle" data-on="Yes" data-off="No" onclick="filterPosts('Miscellaneous')" name="Miscellaneous" value="1" checked="checked">
+                    <span class="label"></span><span class="category">Miscellaneous</span></label></p>
+              </div>
             </div>
         </div>
+        {% bootstrap_paginate blogs range=5 %}
     </div>
-</div>
+<!-- </div> -->
+{% include "home/bottom_banner.html" %} 
 {% endblock %}
