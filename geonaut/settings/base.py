@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
     'taggit_templatetags2',
+    'bootstrap_pagination',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -88,6 +89,10 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.request",
+)
 
 WSGI_APPLICATION = 'geonaut.wsgi.application'
 
