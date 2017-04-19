@@ -5,8 +5,8 @@
 {% block body_class %}template-blogpage{% endblock %}
 
 {% block content %}
-<div class="index-banner">
-    <div class="container">
+{% include "home/top_banner.html" %} 
+    <div class="container panel-body">
         <div class="row">
             <div class="col-lg-12">
                 <h1>{{ page.title }}</h1>
@@ -37,5 +37,5 @@
             </div>
         </div>
     </div>
-</div>
+{% include "home/bottom_banner.html" %} 
 {% endblock %}
