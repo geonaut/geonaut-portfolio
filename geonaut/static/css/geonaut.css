@@ -148,9 +148,40 @@ h2 {
   margin-bottom: 20px;
 }
 
+.blog-post-date {
+  margin-top: 20px;
+  color: #777;
+}
+
 .blog-container {
     padding-top: 100px;
     border-top: 1px solid #e7e7e7;
+}
+
+.blog-heading {
+  margin-bottom: 25px;
+  font-size: 34px;
+}
+
+.post-intro {
+  margin-left: 0px;
+  margin-right: 0px;
+  font-size:18px;
+  font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 300;
+  line-height: 1.5em;
+}
+
+.rich-text {
+    font-size:18px;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+}
+
+.rich-text p {
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .content-section-b {
@@ -324,11 +355,6 @@ p.copyright {
     .btn-matrix .btn {
         min-width: 200px;
     }
-}
-
-.post-intro {
-  margin-left: 0px;
-  margin-right: 0px;
 }
 
 .btn-employ {

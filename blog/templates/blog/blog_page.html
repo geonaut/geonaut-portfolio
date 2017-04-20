@@ -8,9 +8,24 @@
 {% include "home/top_banner.html" %} 
     <div class="container panel-body">
         <div class="row">
-            <div class="col-lg-12">
-                <h1>{{ page.title }}</h1>
-                <p class="meta">{{ page.date }}</p>
+            <div class="col-lg-9">
+                <h1 class="blog-heading">{{ page.title }}</h1>
+                
+                {{ page.body|richtext }}
+                 <hr class="blog-divider">
+                {% for item in page.gallery_images.all %}
+                    <div class="col-lg-5 col-sm-12" style="float: left; margin: 10px">
+
+                        {% image item.image fill-320x240 %}
+                        <div class="col-lg-12 col-sm-6" style="float: left; margin: 10px">
+                        <p>{{ item.caption }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-lg-3 sidebar">
+            <p class="meta blog-post-date">{{ page.date }}</p>
+                <hr class="blog-divider">
                 {% if page.tags.all.count %}
                 <div class="tags">
                     <p>Tags:
@@ -24,16 +39,10 @@
                         </a>
                     {% endfor %}
                     </p>
+                 <hr class="blog-divider">
+                 <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
                 </div>
                 {% endif %}
-                {{ page.body|richtext }}
-               <!--  {% for item in page.gallery_images.all %}
-                    <div style="float: left; margin: 10px">
-                        {% image item.image fill-320x240 %}
-                        <p>{{ item.caption }}</p>
-                    </div>
-                {% endfor %} -->
-                <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
             </div>
         </div>
 
