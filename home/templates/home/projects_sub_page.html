@@ -9,10 +9,12 @@
 <div class="index-banner">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-lg-offset-1 col-sm-6">
-                <img class="img-responsive" src="{% static "img/cogs.png" %}" alt="">
+            <div class="col-lg-5 col-sm-6">
+                <!-- <img class="img-responsive" src="{% static "img/cogs.png" %}" alt=""> -->
+                            {% image self.feed_image width-200 as img %}
+                            <img class="media-object img-circle img-responsive project-header-image z-depth-1" src="{{ img.url }}" width="140" height="140"/>
             </div>
-            <div class="col-lg-7 col-lg-offset-1">
+            <div class="col-lg-7 col-sm-6">
                 <div class="clearfix"></div>
                     <h2 class="section-heading">{{ self.title }}</h2>
                     <p class="lead">{{ self.body|richtext }}</p>

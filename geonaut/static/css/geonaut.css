@@ -168,6 +168,11 @@ h2 {
   padding-bottom: 10px;
 }
 
+.project-header-image {
+   margin: 0 auto;
+   margin-top: 30px;
+}
+
 .section-heading {
     margin-bottom: 30px;
 }
