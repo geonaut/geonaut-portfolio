@@ -1,24 +1,24 @@
-An h1 header
-============
+Source Code for Geonaut.co.uk
+=============================
 
-Paragraphs are separated by a blank line.
+This is the source code for my personal portolio site, written in Python. It is relatively simple and lightweight, and makes use of the Django framework and Wagtail CMS for managing content. 
 
 2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
 look like:
 
-  * this one
-  * that one
-  * the other one
+The site also uses:
 
-Note that --- not considering the asterisk --- the actual text
-content starts at 4-columns in.
+  * Bootstrap v3
+  * JavaScript incl. JQuery
+  * Taggit for tags
+  * Formspree as a lightweight SMTP relay
+  * Django Bootstrap Pagination
 
-> Block quotes are
-> written like so.
->
-> They can span multiple paragraphs,
-> if you like.
+To Do List
+==========
 
-Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
-in chapters 12--14"). Three dots ... will be converted to an ellipsis.
-Unicode is supported. ☺
+1. Move homepage copy into CMS
+1. Dynamically fetch categories to create filter switches
+1. Find a more reliable way to display PDFs
+1. Sort script blocking on above-fold content
+1. Set on_delete values for on_delete action
