@@ -3,9 +3,6 @@ Source Code for Geonaut.co.uk
 
 This is the source code for my personal portolio site, written in Python. It is relatively simple and lightweight, and makes use of the Django framework and Wagtail CMS for managing content. 
 
-2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
-look like:
-
 The site also uses:
 
   * Bootstrap v3
