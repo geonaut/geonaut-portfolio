@@ -19,3 +19,5 @@ To Do List
 1. Find a more reliable way to display PDFs
 1. Sort script blocking on above-fold content
 1. Set on_delete values for on_delete action
+1. Add a sitemap
+1. Update to Python 3
