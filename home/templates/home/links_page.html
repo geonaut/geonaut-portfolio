@@ -14,7 +14,7 @@
             <div class="col-lg-7 col-sm-6 col-lg-offset-1">
                     
                 <div class="clearfix"></div>
-                <h2 class="section-heading">Links</h2>
+                <h2 class="section-heading">Python links</h2>
                 <p class="lead">These are some of my favourite resources for learning Python. I have been steadily working through them over the past few months. Where possible, I've uploaded the exercises and code to my GitHub account.</p>
             </div>
         </div>
@@ -29,11 +29,9 @@
                     {% if links %}
                         {% for link in links %}
                             <div class="col-md-4 portfolio-item">
-                            <a href="#">
                             {% image link.feed_image width-360 as img %}
                             <img class="media-object img-responsive" src="{{ img.url }}" />
-                            </a>
-                            <h3><a href="#">{{ link.title }}</a></h3>
+                            <h3><a href="{{ link.link_external }}">{{ link.title }}</a></h3>
                             <p>{{ link.body|richtext }}</p>
                             </div>
                             {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
