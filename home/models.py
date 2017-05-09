@@ -102,3 +102,40 @@ class ContactPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
     ]
+
+class LinksPage(Page):
+    body = RichTextField(blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('body', classname="full"),
+    ]
+
+    @property
+    def linkURL(self):
+        return self.link_external
+
+    @property
+    def linkList(self):
+        # Get list of live blog pages that are descendants of this page
+        link_list = Link.objects.live().descendant_of(self)
+
+        return link_list
+
+class Link(Page):
+    link_subtitle = models.CharField(max_length=255)
+    body = RichTextField(blank=True)
+    feed_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    link_external = models.URLField(blank=True)
+    
+    content_panels = Page.content_panels + [
+        FieldPanel('body', classname="full"),
+        FieldPanel('link_subtitle', classname="full"),
+        ImageChooserPanel('feed_image'),
+        FieldPanel('link_external'),
+    ]

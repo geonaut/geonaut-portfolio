@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags static wagtailimages_tags%}
+
+{% block body_class %}template-linkspage index{% endblock %}
+
+{% block content %}
+<div class="index-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-lg-offset-1 col-sm-6">
+                <img class="img-responsive" src="{% static "img/link.png" %}" alt="Projects">
+            </div>
+            <div class="col-lg-7 col-sm-6 col-lg-offset-1">
+                    
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Links</h2>
+                <p class="lead">These are some of my favourite resources for learning Python. I have been steadily working through them over the past few months. Where possible, I've uploaded the exercises and code to my GitHub account.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container panel-body">
+    <div class="row">
+        <div class="col-lg-12">
+            <hr class="section-heading">
+            <div class="row" style="padding-top: 40px;">
+                {% with self.linkList as links %}
+                    {% if links %}
+                        {% for link in links %}
+                            <div class="col-md-4 portfolio-item">
+                            <a href="#">
+                            {% image link.feed_image width-360 as img %}
+                            <img class="media-object img-responsive" src="{{ img.url }}" />
+                            </a>
+                            <h3><a href="#">{{ link.title }}</a></h3>
+                            <p>{{ link.body|richtext }}</p>
+                            </div>
+                            {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+{% include "home/bottom_banner.html" %} 
+{% endblock content %}
