@@ -17,7 +17,7 @@
                             <div class="col-md-4 portfolio-item">
                             {% image page.feed_image width-360 as img %}
                             <img class="media-object img-responsive" src="{{ img.url }}" />
-                            <h3><a href="{{ page.page_external }}">{{ page.title }}</a></h3>
+                            <h3><a href="{{ page.link }}">{{ page.title }}</a></h3>
                             <p>{{ page.body|richtext }}</p>
                             </div>
                             {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
