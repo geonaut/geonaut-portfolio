@@ -19,19 +19,37 @@ class HomePage(Page):
 class AboutPage(Page):
     body_professional = RichTextField(blank=True)
     body_personal = RichTextField(blank=True)
+    body = RichTextField(blank=True)
+    header_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
     content_panels = Page.content_panels + [
+        FieldPanel('body', classname="full"),
         FieldPanel('body_professional', classname="full"),
         FieldPanel('body_personal', classname="full"),
+        ImageChooserPanel('header_image'),
     ]
 
 class ContactPage(Page):
     body = RichTextField(blank=True)
+    header_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
+        ImageChooserPanel('header_image'),
     ]
-    
+
 class IndexPage(Page):
     body = RichTextField(blank=True)
     button_text = models.CharField(
