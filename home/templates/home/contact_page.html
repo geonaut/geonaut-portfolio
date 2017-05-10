@@ -7,21 +7,7 @@
 
 
 {% block content %}
-<div class="index-banner">
-    <div class="container">
-    <div class="row">
-                <div class="col-lg-3 col-lg-offset-1 col-sm-6">
-                    <img class="img-responsive" src="{% static "img/hello.png" %}" alt="">
-                </div>
-                <div class="col-lg-7 col-sm-6 col-lg-offset-1">
-                    
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Contact</h2>
-                    <p class="lead">There are lots of ways to get in touch with me. Feel free to say hello, and I'll do my best to get back to you quickly.</p>
-                </div>
-            </div>
-    </div>
-</div>
+{% include "home/index_banner.html" %}
 <div class="container panel-body">
     <div class="row">
         <div class="col-lg-12">
