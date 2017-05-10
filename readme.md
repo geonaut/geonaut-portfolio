@@ -14,11 +14,11 @@ The site also uses:
 Setup a local instance on a Mac
 ===============================
 
-Requirements: Python, Pip, Virtualenv
+Requirements: Python 2.7, Pip, Virtualenv
 
 1. Create a virtualenv folder on your computer (eg `virtualenv geonaut_venv`)
 1. Change into the directory (`cd geonaut_venv`)
-1. Download / clone this repo to your virtual env (eg 'git clone https://github.com/geonaut/geonaut-portfolio.git geonaut')
+1. Download / clone this repo to your virtual env (eg `git clone https://github.com/geonaut/geonaut-portfolio.git geonaut`)
 1. Activate the venv (`source bin/activate`)
 1. Change into the project directory (`cd geonaut`)
 1. Install the requirements (`pip install -r requirements.txt`)
