@@ -3,7 +3,7 @@
 /db.sqlite3
 
 run/
-media/
+/media
 /static
 logs/
 

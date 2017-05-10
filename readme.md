@@ -24,8 +24,18 @@ Requirements: Python 2.7, Pip, Virtualenv
 1. Install the requirements (`pip install -r requirements.txt`)
 1. Copy settings/local.py.sample to settings/local.py
 1. Uncomment the secret key line, and make your own secret key (change / add random characters)
-1. Uncomment the Databases snippet (the SQLite one) to base.py
+1. Uncomment the Databases snippet (the SQLite one) and move it to base.py
+1. To use a pre-populated database
+    -  Copy the quickstart/db.sqlite3 to the folder above /quickstart
+    -  Copy the quickstart/media folder to the folder above /quickstart
+    -  If the database snippet is configured correctly, it should work automatically. You should see some dummy copy / images in the site
+    -  The username is `admin` and password is `password`
+1. To create your own empty database
+    -  Create the database with `python manage.py migrate`
+    -  Create a superuser with `python manage.py createsuperuser`
+    -  The site will be empty, except for the static homepage
 1. Run the development server (`python manage.py runserver` from whichever folder manage.py is in)
+1. Access the site at http://127.0.0.1:800 and http://127.0.0.1/admin
 
 
 To Do List
