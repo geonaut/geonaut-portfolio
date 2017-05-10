@@ -40,8 +40,12 @@ class ProjectsPage(Page):
 
 class IndexPage(Page):
     body = RichTextField(blank=True)
-    button_text = models.CharField(max_length=255,null=True)
-    feed_image = models.ForeignKey(
+    button_text = models.CharField(
+        max_length=255,
+        null=True,blank=
+        True,
+    )
+    header_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
@@ -52,7 +56,7 @@ class IndexPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
         FieldPanel('button_text', classname="full"),
-        ImageChooserPanel('feed_image'),
+        ImageChooserPanel('header_image'),
     ]
 
     def get_context(self, request):
@@ -63,8 +67,19 @@ class IndexPage(Page):
 
 class GridSubPage(Page):
     body = RichTextField(blank=True)
-    button_text = models.CharField(max_length=255,null=True)
+    button_text = models.CharField(
+        max_length=255,
+        null=True,blank=
+        True,
+    )
     feed_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    header_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
@@ -76,6 +91,7 @@ class GridSubPage(Page):
         FieldPanel('body', classname="full"),
         FieldPanel('button_text', classname="full"),
         ImageChooserPanel('feed_image'),
+        ImageChooserPanel('header_image'),
     ]
 
     def get_context(self, request):
@@ -86,8 +102,19 @@ class GridSubPage(Page):
 
 class ListSubPage(Page):
     body = RichTextField(blank=True)
-    button_text = models.CharField(max_length=255,null=True)
+    button_text = models.CharField(
+        max_length=255,
+        null=True,blank=
+        True,
+    )
     feed_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    header_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
@@ -99,6 +126,7 @@ class ListSubPage(Page):
         FieldPanel('body', classname="full"),
         FieldPanel('button_text', classname="full"),
         ImageChooserPanel('feed_image'),
+        ImageChooserPanel('header_image'),
     ]
 
     def get_context(self, request):
