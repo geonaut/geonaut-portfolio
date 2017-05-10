@@ -6,22 +6,7 @@
 
 {% block content %}
 <!-- Banner -->
-<div class="index-banner">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5 col-sm-6">
-                {% image self.feed_image width-200 as img %}
-                <img class="media-object img-responsive project-header-image" src="{{ img.url }}"/>
-            </div>
-            <div class="col-lg-7 col-sm-6">
-                <div class="clearfix"></div>
-                    <h2 class="section-heading">{{ self.title }}</h2>
-                    <p class="lead">{{ self.body|richtext }}</p>
-            </div>
-        </div>
-    </div>
-</div>
-
+{% include "home/index_banner.html" %}
 <!-- Content -->
 <div class="container panel-body">
     <div class="row">
