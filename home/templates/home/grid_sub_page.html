@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags static wagtailimages_tags%}
+
+{% block body_class %}template-linkspage index{% endblock %}
+
+{% block content %}
+{% include "home/index_banner.html" %}
+<div class="container panel-body">
+    <div class="row">
+        <div class="col-lg-12">
+            <hr class="section-heading">
+            <div class="row" style="padding-top: 40px;">
+                {% with sub_pages as subpages %}
+                    {% if subpages %}
+                        {% for page in subpages %}
+                            <div class="col-md-4 portfolio-item">
+                            {% image page.feed_image width-360 as img %}
+                            <img class="media-object img-responsive" src="{{ img.url }}" />
+                            <h3><a href="{{ page.page_external }}">{{ page.title }}</a></h3>
+                            <p>{{ page.body|richtext }}</p>
+                            </div>
+                            {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+{% include "home/bottom_banner.html" %} 
+{% endblock content %}

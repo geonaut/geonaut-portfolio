@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags static wagtailimages_tags%}
+
+{% block body_class %}template-projectspage index{% endblock %}
+
+
+
+{% block content %}
+<div class="index-banner">
+ <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-lg-offset-1 col-sm-6">
+                {% image self.feed_image width-263 as img %}
+                    <img class="img-responsive" src="{{ img.url }}" alt="">
+                </div>
+                <div class="col-lg-7 col-sm-6 col-lg-offset-1">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">{{ self.title }}</h2>
+                    <p class="lead"> {{ self.body|richtext }}</p>
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+    <div class="container panel-body">
+            <div class="row" style="text-align:center;">
+                <div class="col-lg-12">
+                <hr class="section-heading">
+              <div class="container" style="padding-top: 40px;">
+      <!-- Three columns of text below the carousel -->
+      <div class="row projects-row" >
+      {% with sub_pages as pages %}
+          {% for page in pages %}
+           <div class="col-lg-4 col-centered project-column">
+           {% image page.feed_image width-500 as img %}
+            <img class="img-circle" src="{{ img.url }}" width="140" height="140"/>
+          <h2>{{ page.title }}</h2>
+          <p>{{ page.body|richtext }}</p>
+          <p><a class="btn btn-default" href="{{ page.url }}" role="button">{{ self.button_text }} »</a></p>
+           {% if forloop.counter|divisibleby:3 %}</div><div class="row">{% endif %}
+        </div>
+          {% endfor %}
+      {% endwith %}
+      </div>
+      </div><!-- /.row -->
+    </div>
+    </div>
+</div>
+</div>
+{% include "home/bottom_banner.html" %} 
+{% endblock %}
+
